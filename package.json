@@ -1,0 +1,22 @@
+{
+  "name": "connected-app-api",
+  "version": "1.0.0",
+  "description": "API for Connected App Canvas API",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev ./index.ts"
+  },
+  "author": "Dhaval Heruwala",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.15",
+    "@types/node": "^18.11.17",
+    "express": "^4.18.2",
+    "express-graphql": "^0.12.0",
+    "jsonwebtoken": "^9.0.0",
+    "ts-node-dev": "^2.0.0"
+  }
+}
