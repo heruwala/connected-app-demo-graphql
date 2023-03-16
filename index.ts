@@ -30,14 +30,14 @@ app.use((req: Request, res: Response, next: any) => {
     next();
 });
 
-// ensure that the user is authenticated with a jwt token issued by 'https://awesome-dhaval-dev-ed.my.salesforce.com' for requests to path 'healthcheck'
+// ensure that the user is authenticated with a jwt token issued by 'https://d0b000000venlea2-dev-ed.my.salesforce.com' for requests to path 'healthcheck'
 app.use('/graphql', (req: Request, res: Response, next: any) => {
     const authHeader = req.headers.authorization;
     if (authHeader) {
         const token = authHeader.split(' ')[1];
         const jwt = require('jsonwebtoken');
         const decoded = jwt.decode(token, { complete: true });
-        if (decoded && decoded.payload.iss === 'https://awesome-dhaval-dev-ed.my.salesforce.com') {
+        if (decoded && decoded.payload.iss === 'https://d0b000000venlea2-dev-ed.my.salesforce.com') {
             next();
         } else {
             res.status(401).json({
