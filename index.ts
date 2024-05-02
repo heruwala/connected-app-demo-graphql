@@ -6,22 +6,22 @@ const port = 8000;
 
 // GraphQL schema
 let schema = buildSchema(`
-    type Query {
-        message: String
+type Query {
+    message(contactId: String!): String
     }
 `);
 // Root resolver
 let root = {
-    message: () => 'Hello World!' + Math.random()
+    message: async ({ contactId }: { contactId: string }) =>  'Hello from GraphQL Backend! Received ContactId: '+ contactId
 };
 
 // Body parsing Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// add CORS header for auth requests coming from ui.dhaval.ml domain
+// add CORS header for auth requests coming from datavis-local.heruwala.us domain
 app.use((req: Request, res: Response, next: any) => {
-    res.header('Access-Control-Allow-Origin', 'https://ui.dhaval.ml');
+    res.header('Access-Control-Allow-Origin', 'https://datavis-local.heruwala.us');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     if (req.method === 'OPTIONS') {
         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
