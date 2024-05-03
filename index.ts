@@ -12,7 +12,7 @@ type Query {
 `);
 // Root resolver
 let root = {
-    message: async ({ contactId }: { contactId: string }) =>  'Hello from GraphQL Backend! Received ContactId: '+ contactId
+    message: async ({ contactId }: { contactId: string }) =>  'Hello from GraphQL Backend! Received ContactId: '+ contactId + ' at ' + new Date().toISOString()
 };
 
 // Body parsing Middleware
